@@ -22,4 +22,14 @@
 
     <include layout="@layout/content_second" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_enter_pip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/r_string_open_second_activity"
+        app:srcCompat="@drawable/ic_picture_in_picture" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

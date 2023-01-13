@@ -30,6 +30,6 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/r_string_open_second_activity"
-        app:srcCompat="@android:drawable/ic_menu_share" />
+        app:srcCompat="@drawable/ic_open_in_new" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

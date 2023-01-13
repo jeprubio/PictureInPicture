@@ -1,7 +1,5 @@
 package com.rumosoft.pictureinpicture.second
 
-import android.app.PictureInPictureParams
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,34 +24,8 @@ class SecondActivityFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonEnterPip.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                PictureInPictureParams.Builder().apply {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                        setAutoEnterEnabled(true)
-                    }
-                }.build().also {
-                    activity?.enterPictureInPictureMode(it)
-                }
-            }
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean) {
-        super.onPictureInPictureModeChanged(isInPictureInPictureMode)
-
-        if (isInPictureInPictureMode) {
-            binding.buttonEnterPip.visibility = View.GONE
-        } else {
-            binding.buttonEnterPip.visibility = View.VISIBLE
-        }
     }
 }

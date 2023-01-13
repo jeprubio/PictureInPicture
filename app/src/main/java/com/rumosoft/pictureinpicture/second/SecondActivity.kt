@@ -30,6 +30,8 @@ class SecondActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_second)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        initPictureInPicture()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -39,6 +41,16 @@ class SecondActivity : AppCompatActivity() {
     }
 
     override fun onUserLeaveHint() {
+        enterPipMode()
+    }
+
+    private fun initPictureInPicture() {
+        binding.buttonEnterPip.setOnClickListener {
+            enterPipMode()
+        }
+    }
+
+    private fun enterPipMode() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             PictureInPictureParams.Builder().apply {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -59,8 +71,10 @@ class SecondActivity : AppCompatActivity() {
 
         if (isInPictureInPictureMode) {
             binding.toolbar.visibility = View.GONE
+            binding.buttonEnterPip.visibility = View.GONE
         } else {
             binding.toolbar.visibility = View.VISIBLE
+            binding.buttonEnterPip.visibility = View.VISIBLE
         }
     }
 }
